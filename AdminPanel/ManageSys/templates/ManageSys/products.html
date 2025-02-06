@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/productstyles.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/united/bootstrap.min.css">
+    <title>Product List</title>
+</head>
+<body>
+
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'products' %}">Products</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'new-product' %}">Add Products <span class="sr-only"></span></a>
+      </li>
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method = "GET" action = "{% url 'products' %}">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search products" aria-label="Search"
+       name = "q" value="{{ request.GET.q }}">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+        <a href="?sort=name"> <button>Sort by Name</button> </a>
+        &nbsp;
+        <a href="?sort=price"><button>Sort by Price</button></a>
+
+  </div>
+</nav>
+    </nav>
+
+
+
+
+   {% block content %}
+
+
+   {% endblock %}
+
+
+
+
+
+    {% if messages %}
+    <div class="alert-container">
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+    <div class="container">
+        {% for product in products %}
+        <div class="product">
+            {% if product.image %}
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+            {% endif %}
+            <h2>{{ product.name }}</h2>
+            <p class="price">${{ product.price }}</p>
+            <p>{{ product.description }}</p>
+            <a href="{% url 'product-detail' product.id %}">
+                <button class="details">Details</button>
+            </a>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends 'ManageSys/products.html' %}
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{product.name}}</title>
+    <link rel="stylesheet" href="{% static 'css/productstyles.css' %}">
+</head>
+<body>
+
+
+
+<div class = "container">
+    <div class="product">
+        <h1>{{ product.name }}</h1>
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        <p>Price: ${{ product.price }}</p>
+        <p>Description: {{ product.description }}</p>
+        <a href="{% url 'edit_product' product.id %}">
+            <button class = "edit">edit</button>
+            </a>
+
+         <a href="{% url 'delete_product' product.id %}">
+                <button class="delete">Delete</button>
+            </a>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

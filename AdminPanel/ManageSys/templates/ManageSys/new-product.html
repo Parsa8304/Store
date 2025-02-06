@@ -1,0 +1,31 @@
+{% extends 'ManageSys/products.html' %}
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/productstyles.css' %}">
+    <title>new product</title>
+</head>
+<body>
+{% block content %}
+
+
+
+
+            <h1>add product</h1>
+            <div class = "container">
+                <form  method = "POST" autocomplete="off" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+
+                     <input type="submit" value="Submit"/>
+                </form>
+            </div>
+
+{% endblock %}
+
+</body>
+</html>

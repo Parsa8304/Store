@@ -1,0 +1,28 @@
+{% extends 'ManageSys/products.html' %}
+<!DOCTYPE html>
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update {{product.name}}</title>
+</head>
+<body>
+        <h1>Update {{product.name}} here!</h1>
+        <div class="container">
+            <form action="{% url 'edit_product' product.id %}" method = "POST">
+                {% csrf_token %}
+                 {{form.as_p}}
+                <input type="submit" value="Submit"/>
+
+            </form>
+
+
+
+        </div>
+
+        <!-- Add more products as needed -->
+    </div>
+
+</body>
+</html>
+{% endblock %}

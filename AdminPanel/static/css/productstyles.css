@@ -1,0 +1,61 @@
+ body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .product h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .product p {
+            margin: 5px 0;
+        }
+        .product .price {
+            font-weight: bold;
+            color: green;
+        }
+        .product button {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        .product button.details {
+            background-color: #007bff;
+        }
+        .product button:hover {
+            opacity: 0.9;
+        }
+ .delete {
+    background-color: #f90707; /* Red background for delete button */
+    padding: 10px 15px; /* Consistent padding */
+    transition: background-color 0.3s, opacity 0.3s; /* Smooth transition */
+}
+
+.delete:hover {
+    background-color: #c50606; /* Darker red on hover */
+    opacity: 0.9; /* Slightly transparent on hover */
+}
